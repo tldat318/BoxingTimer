@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2F8FBC2092CD110043D83B /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F8FBB2092CD100043D83B /* AKPickerView.swift */; };
 		CEA8370D20804FAD00C8F3C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */; };
 		CEA8370F20804FAD00C8F3C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8370E20804FAD00C8F3C5 /* ViewController.swift */; };
 		CEA8371220804FAD00C8F3C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA8371020804FAD00C8F3C5 /* Main.storyboard */; };
@@ -14,6 +15,9 @@
 		CEA8371720804FAD00C8F3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA8371520804FAD00C8F3C5 /* LaunchScreen.storyboard */; };
 		CEA8372220804FAD00C8F3C5 /* BoxingTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8372120804FAD00C8F3C5 /* BoxingTimerTests.swift */; };
 		CEA8372D20804FAD00C8F3C5 /* BoxingTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8372C20804FAD00C8F3C5 /* BoxingTimerUITests.swift */; };
+		CEB74134209317860095D415 /* OP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB74133209317860095D415 /* OP.swift */; };
+		CEE9F01D208F351000AF1AD0 /* OptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9F01C208F351000AF1AD0 /* OptionController.swift */; };
+		CEF13D0B208F3AE3003496DE /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF13D0A208F3AE3003496DE /* UIImage+Resize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE2F8FBB2092CD100043D83B /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		CEA8370920804FAD00C8F3C5 /* BoxingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA8370E20804FAD00C8F3C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,9 @@
 		CEA8372820804FAD00C8F3C5 /* BoxingTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoxingTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA8372C20804FAD00C8F3C5 /* BoxingTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingTimerUITests.swift; sourceTree = "<group>"; };
 		CEA8372E20804FAD00C8F3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEB74133209317860095D415 /* OP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OP.swift; sourceTree = "<group>"; };
+		CEE9F01C208F351000AF1AD0 /* OptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionController.swift; sourceTree = "<group>"; };
+		CEF13D0A208F3AE3003496DE /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE9CB5142088306F0079E594 /* CenterClass */ = {
+			isa = PBXGroup;
+			children = (
+				CE2F8FBB2092CD100043D83B /* AKPickerView.swift */,
+				CEF13D0A208F3AE3003496DE /* UIImage+Resize.swift */,
+				CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */,
+				CEB74133209317860095D415 /* OP.swift */,
+			);
+			path = CenterClass;
+			sourceTree = "<group>";
+		};
 		CEA8370020804FAD00C8F3C5 = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +116,9 @@
 		CEA8370B20804FAD00C8F3C5 /* BoxingTimer */ = {
 			isa = PBXGroup;
 			children = (
-				CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */,
+				CE9CB5142088306F0079E594 /* CenterClass */,
 				CEA8370E20804FAD00C8F3C5 /* ViewController.swift */,
+				CEE9F01C208F351000AF1AD0 /* OptionController.swift */,
 				CEA8371020804FAD00C8F3C5 /* Main.storyboard */,
 				CEA8371320804FAD00C8F3C5 /* Assets.xcassets */,
 				CEA8371520804FAD00C8F3C5 /* LaunchScreen.storyboard */,
@@ -259,7 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2F8FBC2092CD110043D83B /* AKPickerView.swift in Sources */,
+				CEE9F01D208F351000AF1AD0 /* OptionController.swift in Sources */,
+				CEB74134209317860095D415 /* OP.swift in Sources */,
 				CEA8370F20804FAD00C8F3C5 /* ViewController.swift in Sources */,
+				CEF13D0B208F3AE3003496DE /* UIImage+Resize.swift in Sources */,
 				CEA8370D20804FAD00C8F3C5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
