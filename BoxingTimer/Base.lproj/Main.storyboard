@@ -182,7 +182,7 @@
             <objects>
                 <viewController storyboardIdentifier="OP" id="fX4-Sz-dc5" customClass="OptionController" customModule="BoxingTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="33d-ST-ufQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vJ-58-pRc">
@@ -206,10 +206,10 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa4-Pk-3Rq">
-                                <rect key="frame" x="0.0" y="72" width="320" height="1428"/>
+                                <rect key="frame" x="0.0" y="72" width="320" height="496"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-yE-qmd">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1428"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1500"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjx-kR-Zxt">
                                                 <rect key="frame" x="32" y="0.0" width="125" height="48"/>
@@ -576,6 +576,7 @@
                                             <constraint firstItem="n2d-xW-Rvy" firstAttribute="width" secondItem="QQX-yE-qmd" secondAttribute="width" id="U49-4J-Wc3"/>
                                             <constraint firstItem="n2d-xW-Rvy" firstAttribute="leading" secondItem="QQX-yE-qmd" secondAttribute="leading" id="Uvb-2g-hmV"/>
                                             <constraint firstItem="ZRb-F7-d4L" firstAttribute="top" secondItem="uAu-Bu-qFb" secondAttribute="bottom" constant="24" id="Vtd-65-ba7"/>
+                                            <constraint firstAttribute="height" constant="1500" id="dgL-GD-RTN"/>
                                             <constraint firstItem="zqY-6G-qEx" firstAttribute="leading" secondItem="QQX-yE-qmd" secondAttribute="leading" id="eJb-9h-Fxn"/>
                                             <constraint firstItem="IEg-0p-pYZ" firstAttribute="top" secondItem="cjx-kR-Zxt" secondAttribute="bottom" constant="24" id="eTM-Wp-xIo"/>
                                             <constraint firstItem="ihO-m2-fZ6" firstAttribute="width" secondItem="QQX-yE-qmd" secondAttribute="width" id="feO-CN-AdD"/>
@@ -595,7 +596,6 @@
                                     <constraint firstItem="QQX-yE-qmd" firstAttribute="width" secondItem="xa4-Pk-3Rq" secondAttribute="width" id="Auy-JC-Upy"/>
                                     <constraint firstAttribute="bottom" secondItem="QQX-yE-qmd" secondAttribute="bottom" constant="600" id="H3S-Lo-np3"/>
                                     <constraint firstItem="QQX-yE-qmd" firstAttribute="top" secondItem="xa4-Pk-3Rq" secondAttribute="top" id="OIf-7g-Ngj"/>
-                                    <constraint firstItem="QQX-yE-qmd" firstAttribute="height" secondItem="xa4-Pk-3Rq" secondAttribute="height" id="aYy-in-sMG"/>
                                     <constraint firstItem="QQX-yE-qmd" firstAttribute="leading" secondItem="xa4-Pk-3Rq" secondAttribute="leading" id="hZ2-JM-DQE"/>
                                     <constraint firstAttribute="trailing" secondItem="QQX-yE-qmd" secondAttribute="trailing" id="spj-yR-c5M"/>
                                     <constraint firstItem="QQX-yE-qmd" firstAttribute="leading" secondItem="xa4-Pk-3Rq" secondAttribute="leading" id="wun-ih-rI0"/>
@@ -615,7 +615,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Zj-HT-WGB"/>
                     </view>
-                    <size key="freeformSize" width="320" height="1500"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="BreakEndNotice" destination="kDj-2b-Ujg" id="7G9-78-Ayv"/>
                         <outlet property="BreakLenght" destination="a4G-mE-4dC" id="uGD-CJ-nkh"/>
