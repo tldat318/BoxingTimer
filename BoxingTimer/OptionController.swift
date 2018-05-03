@@ -24,7 +24,6 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
         btn_Stick.layer.shadowOpacity = 0.8
         btn_Bell.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
         btn_Bell.layer.shadowOpacity = 0.8
-        print("1")
     }
     
     
@@ -33,7 +32,6 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
         btn_Bell.layer.shadowOpacity = 0.8
         btn_Stick.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
         btn_Stick.layer.shadowOpacity = 0.8
-        print("1")
     }
     let numberofround = ["1","2","3","4","5"]
     let roundlenght = ["120","150","180","210","240"]
