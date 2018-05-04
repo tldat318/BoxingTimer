@@ -7,18 +7,28 @@
 //
 
 import UIKit
+let numberofround = ["1","2","3","4","5"]
+let roundlenght = ["30","60","120","150","180","210","240","270","300"]
+let breaklenght = ["15","30","45","60","75","90","105","120"]
+let roundendnotice = ["5","10","15"]
+let breakendnotice = ["5","10","15"]
+var totaltime = ""
+var breaktime = ""
+var NoticeRoundEnd = ""
+var NoticeBreakEnd = ""
+var Number = ""
+
 
 class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSource {
-
+    
+    
     @IBOutlet weak var NumberRound: AKPickerView!
     @IBOutlet weak var RoundLenght: AKPickerView!
     @IBOutlet weak var BreakLenght: AKPickerView!
     @IBOutlet weak var RoundEndNotice: AKPickerView!
     @IBOutlet weak var BreakEndNotice: AKPickerView!
-    
     @IBOutlet weak var btn_Stick: UIButton!
     @IBOutlet weak var btn_Bell: UIButton!
-    
     @IBAction func abtn_Bell(_ sender: Any) {
         btn_Stick.backgroundColor = UIColor(displayP3Red: 38/255, green: 38/255, blue: 38/255, alpha: 0.8)
         btn_Stick.layer.shadowOpacity = 0.8
@@ -33,13 +43,7 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
         btn_Stick.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
         btn_Stick.layer.shadowOpacity = 0.8
     }
-    let numberofround = ["1","2","3","4","5"]
-    let roundlenght = ["120","150","180","210","240"]
-    let breaklenght = ["30","45","60","75","90"]
-    let roundendnotice = ["15","20","25","30","35"]
-    let breakendnotice = ["10","15","20","25","30"]
-    
-    
+
  
     
     override func viewDidLoad() {
@@ -112,20 +116,20 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
     func numberOfItemsInPickerView(_ pickerView: AKPickerView) -> Int {
         if pickerView.tag == 0
         {
-            return self.numberofround.count
+            return numberofround.count
         }else
         if pickerView.tag == 1 {
-            return self.roundlenght.count
+            return roundlenght.count
         }else
         if pickerView.tag == 2
         {
-            return self.breaklenght.count
+            return breaklenght.count
         }else
         if pickerView.tag == 3 {
-            return self.roundendnotice.count
+            return roundendnotice.count
         }else
         {
-            return self.breakendnotice.count
+            return breakendnotice.count
         }
     }
     //
@@ -161,39 +165,36 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
 
     
     
-    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int) {
+    func pickerView(_ pickerView: AKPickerView, didSelectItem item: Int){
         
         if pickerView.tag == 0
         {
-            print("\(numberofround[item])")
+            Number = numberofround[item]
+        
         }else
         if pickerView.tag == 1
         {
-           print("\(roundlenght[item])")
+           totaltime = roundlenght[item]
+         
         }else
             if pickerView.tag == 2
             {
-                print("\(breaklenght[item])")
+                breaktime = breaklenght[item]
+              
         }else
                 if pickerView.tag == 3
                 {
-                    print("\(roundendnotice[item])")
+                    NoticeRoundEnd = roundendnotice[item]
+                    
         }else
                 {
-        print("\(breakendnotice[item])")
+                    NoticeBreakEnd = breakendnotice[item]
+                    
                     }
     }
     
     
-    func pickerView(pickerView: AKPickerView, configureLabel label: UILabel, forItem item: Int) {
-        label.textColor = UIColor.lightGray
-        label.highlightedTextColor = UIColor.white
-        label.backgroundColor = UIColor(
-            hue: CGFloat(item) / CGFloat(self.numberofround.count),
-            saturation: 1.0,
-            brightness: 0.5,
-            alpha: 1.0)
-  
+   
 
-}
+
 }
