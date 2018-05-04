@@ -60,12 +60,31 @@ class MainViewController: UIViewController {
     }
     func StartTime()
     {
+        timer 2:30
+        round =- 1
         Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
         
+    }
+    start(){
+        Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
     }
     
     @objc func UpdateTime()
     {
+        
+        if timer == 0{
+            if round != 0{
+                round =- 1
+                start()
+                
+            }else{
+                stop()
+            }
+            
+            
+        }else{
+            timer =- 1
+        }
         
         for i in 1...numbertoInt
         {
