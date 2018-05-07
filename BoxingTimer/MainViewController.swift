@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         CountdownTime.isHidden = false
         btn_stop.isHidden = false
         btn_pause.isHidden = false
-        StartTime()
+         StartTime()
         
     }
     
@@ -60,19 +60,10 @@ class MainViewController: UIViewController {
     }
     func StartTime()
     {
-        // number of rounds
-        if time == 0
-        {
-            if numbertoInt != 0
-            {
-                numbertoInt -= 1
-            }
-            else
-            {
-                time -= 1
-            }
-        }
-        Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
+        
+       Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
+        self.numbertoInt -= 1
+        
         
     }
     
@@ -122,9 +113,20 @@ class MainViewController: UIViewController {
                 else
                     
                 {
-                    Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
-                    txt_timer.text = "Finish"
-                    StopTime()
+                    
+                    if numbertoInt != 0
+                    {
+                        
+                        numbertoInt -= 1
+                        time = getCalculatedIntegerFrom(strings: [totaltime])
+                        self.restart()
+                         StartTime()
+                    }else{
+                        StopTime()
+                    }
+                    
+                    
+                    
                 }
             }
             
@@ -132,10 +134,20 @@ class MainViewController: UIViewController {
         }
     }
     
+    func restart(){
+        if Countdown != nil
+        {
+            Countdown.invalidate()
+            Countdown = nil
+            
+        }
+    }
     
     
     func StopTime()
     {
+        Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
+        txt_timer.text = "Finish"
         if Countdown != nil
         {
             Countdown.invalidate()
