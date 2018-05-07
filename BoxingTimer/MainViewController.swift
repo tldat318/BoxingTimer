@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         CountdownTime.isHidden = false
         btn_stop.isHidden = false
         btn_pause.isHidden = false
-        
+        StartTime()
         
     }
     
@@ -50,97 +50,88 @@ class MainViewController: UIViewController {
         lbl_detail2.text = "Rounds: \(timeFormatted(a))/ notice: \(timeFormatted(c))"
         if Number == "1"
         {
-        txt_timer.text = "\(Number) Round"
+            txt_timer.text = "\(Number) Round"
         }
         else
         {
             txt_timer.text = "\(Number) Rounds"
         }
-     
+        
     }
     func StartTime()
     {
-        timer 2:30
-        round =- 1
+        // number of rounds
+        if time == 0
+        {
+            if numbertoInt != 0
+            {
+                numbertoInt -= 1
+            }
+            else
+            {
+                time -= 1
+            }
+        }
         Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
         
-    }
-    start(){
-        Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
     }
     
     @objc func UpdateTime()
     {
         
-        if timer == 0{
-            if round != 0{
-                round =- 1
-                start()
-                
-            }else{
-                stop()
-            }
-            
-            
-        }else{
-            timer =- 1
-        }
         
-        for i in 1...numbertoInt
+        
+        CountdownTime.text = "\(timeFormatted(time))"
+        
+        if countdownready != 0
         {
-            CountdownTime.text = "\(timeFormatted(time))"
-            if i < numbertoInt
+            countdownready -= 1
+            print(countdownready)
+            CountdownTime.text = "\(countdownready)"
+        }
+        else
+        {
+            
+            if time != 0
             {
-                    if countdownready != 0
-                {
-                    countdownready -= 1
-                    print(countdownready)
-                    CountdownTime.text = "\(countdownready)"
-                }
-                    else
+                time -= 1
+                Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
+                txt_timer.text = "Round 1"
+                if time <= b
                 {
                     
-                    if time != 0
-                    {
-                        time -= 1
-                        Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
-                        txt_timer.text = "Round \(i)"
-                        if time <= breaktimeToInt
-                        {
-                            
-                            Backgrondlbl.backgroundColor = UIColor.init(displayP3Red:  209/255, green: 116/255, blue: 25/255, alpha: 1)
-                            txt_timer.text = "Round \(i)"
-                        }
-                        
-                    }
-                    else
-                    {
-                        CountdownTime.text = "\(timeFormatted(a))"
-                        if a != 0
-                        {
-                            a -= 1
-                            Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 1)
-                            txt_timer.text = "Break"
-                            if a <= NoticeBreakToInt
-                            {
-                                Backgrondlbl.backgroundColor = UIColor.init(displayP3Red:  209/255, green: 116/255, blue: 25/255, alpha: 1)
-                                txt_timer.text = "Break"
-                            }
-                        }
-                            
-                        else
-                        {
-                            StopTime()
-                        }
-                    }
-                    
+                    Backgrondlbl.backgroundColor = UIColor.init(displayP3Red:  209/255, green: 116/255, blue: 25/255, alpha: 1)
+                    txt_timer.text = "Round 1"
                 }
                 
             }
-            print(i)
+            else
+            {
+                CountdownTime.text = "\(timeFormatted(a))"
+                if a != 0
+                {
+                    a -= 1
+                    Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 1)
+                    txt_timer.text = "Break"
+                    if a <= NoticeBreakToInt
+                    {
+                        Backgrondlbl.backgroundColor = UIColor.init(displayP3Red:  209/255, green: 116/255, blue: 25/255, alpha: 1)
+                        txt_timer.text = "Break"
+                    }
+                }
+                else
+                    
+                {
+                    Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
+                    txt_timer.text = "Finish"
+                    StopTime()
+                }
+            }
+            
+            
         }
-      
     }
+    
     
     
     func StopTime()
@@ -149,7 +140,7 @@ class MainViewController: UIViewController {
         {
             Countdown.invalidate()
             Countdown = nil
-           
+            
         }
     }
     
@@ -172,6 +163,7 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-
-
+    
+    
 }
+
