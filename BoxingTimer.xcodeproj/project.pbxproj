@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CE2F8FBC2092CD110043D83B /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F8FBB2092CD100043D83B /* AKPickerView.swift */; };
+		CE4D00A620A1693900644502 /* BeginFight.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE4D00A320A1693900644502 /* BeginFight.wav */; };
+		CE4D00A720A1693900644502 /* Notice.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE4D00A420A1693900644502 /* Notice.wav */; };
+		CE4D00A820A1693900644502 /* ready.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE4D00A520A1693900644502 /* ready.wav */; };
 		CEA8370D20804FAD00C8F3C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */; };
 		CEA8370F20804FAD00C8F3C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8370E20804FAD00C8F3C5 /* MainViewController.swift */; };
 		CEA8371220804FAD00C8F3C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA8371020804FAD00C8F3C5 /* Main.storyboard */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		CE2F8FBB2092CD100043D83B /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
+		CE4D00A320A1693900644502 /* BeginFight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BeginFight.wav; sourceTree = "<group>"; };
+		CE4D00A420A1693900644502 /* Notice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notice.wav; sourceTree = "<group>"; };
+		CE4D00A520A1693900644502 /* ready.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ready.wav; sourceTree = "<group>"; };
 		CEA8370920804FAD00C8F3C5 /* BoxingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEA8370E20804FAD00C8F3C5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE4D00A920A1897C00644502 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				CE4D00A320A1693900644502 /* BeginFight.wav */,
+				CE4D00A420A1693900644502 /* Notice.wav */,
+				CE4D00A520A1693900644502 /* ready.wav */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		CE9CB5142088306F0079E594 /* CenterClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +132,7 @@
 		CEA8370B20804FAD00C8F3C5 /* BoxingTimer */ = {
 			isa = PBXGroup;
 			children = (
+				CE4D00A920A1897C00644502 /* Music */,
 				CE9CB5142088306F0079E594 /* CenterClass */,
 				CEA8370E20804FAD00C8F3C5 /* MainViewController.swift */,
 				CEE9F01C208F351000AF1AD0 /* OptionController.swift */,
@@ -252,8 +269,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4D00A720A1693900644502 /* Notice.wav in Resources */,
 				CEA8371720804FAD00C8F3C5 /* LaunchScreen.storyboard in Resources */,
+				CE4D00A620A1693900644502 /* BeginFight.wav in Resources */,
 				CEA8371420804FAD00C8F3C5 /* Assets.xcassets in Resources */,
+				CE4D00A820A1693900644502 /* ready.wav in Resources */,
 				CEA8371220804FAD00C8F3C5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

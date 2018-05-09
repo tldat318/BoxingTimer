@@ -141,6 +141,7 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
             if pickerView.tag == 1 {
                 let a = getCalculatedIntegerFrom(strings: [roundlenght[item]])
                 let fm_number = timeFormatted(a)
+                
                 return fm_number
             }else
                 if pickerView.tag == 2
@@ -170,25 +171,30 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
         if pickerView.tag == 0
         {
             Number = numberofround[item]
+            UserDefaults.standard.set(Number, forKey: "number")
         
         }else
         if pickerView.tag == 1
         {
            totaltime = roundlenght[item]
+            UserDefaults.standard.set(totaltime, forKey: "round")
          
         }else
             if pickerView.tag == 2
             {
                 breaktime = breaklenght[item]
+                UserDefaults.standard.set(breaktime, forKey: "timebreak")
               
         }else
                 if pickerView.tag == 3
                 {
                     NoticeRoundEnd = roundendnotice[item]
+                    UserDefaults.standard.set(NoticeRoundEnd, forKey: "noticeround")
                     
         }else
                 {
                     NoticeBreakEnd = breakendnotice[item]
+                    UserDefaults.standard.set(NoticeBreakEnd, forKey: "noticebreak")
                     
                     }
     }
