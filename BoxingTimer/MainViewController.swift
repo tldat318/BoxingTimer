@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       setdedault()
         if let number = UserDefaults.standard.value(forKey: "number") as? String{
           numbertoInt = getCalculatedIntegerFrom(strings: [number])
         }
@@ -60,9 +60,9 @@ class MainViewController: UIViewController {
         if let noticebreak = UserDefaults.standard.value(forKey: "noticebreak") as? String{
             NoticeBreakToInt = getCalculatedIntegerFrom(strings: [noticebreak])
         }
-        btn_resume.layer.cornerRadius = 6
-        btn_pause.layer.cornerRadius = 6
-        btn_stop.layer.cornerRadius = 6
+        btn_resume.layer.cornerRadius = 12
+        btn_pause.layer.cornerRadius = 12
+        btn_stop.layer.cornerRadius = 12
         txt_timer.text = "\(numberofround[0]) Round"
         lbl_detail1.text = "Rounds: \(timeFormatted(time))/ notice: \(timeFormatted(NoticeRoundtoInt))"
         lbl_detail2.text = "Breaks: \(timeFormatted(breaktimeToInt))/ notice: \(timeFormatted(NoticeBreakToInt))"
@@ -139,7 +139,7 @@ class MainViewController: UIViewController {
                          StartTime()
                         if numbertoInt == 1
                         {
-                            //breaktimeToInt = 0
+                            breaktimeToInt = 0
                            
                         }else if numbertoInt == 0
                         {
@@ -178,6 +178,29 @@ class MainViewController: UIViewController {
         time = 0
         Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
         txt_timer.text = "Finish"
+    }
+    func setdedault()
+    {
+        if Number.isEmpty == true
+        {
+            numbertoInt = 1
+        }
+        if totaltime.isEmpty == true
+        {
+            time = 30
+        }
+        if breaktime.isEmpty == true
+        {
+            breaktimeToInt = 15
+        }
+        if NoticeRoundEnd.isEmpty == true
+        {
+            NoticeRoundtoInt = 5
+        }
+        if NoticeBreakEnd.isEmpty == true
+        {
+            NoticeBreakToInt = 5
+        }
     }
     
     @IBAction func abtn_pause(_ sender: Any) {
