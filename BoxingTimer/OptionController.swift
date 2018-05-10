@@ -22,6 +22,9 @@ var Number = ""
 class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSource {
     
     
+    @IBAction func abtn_back(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     @IBOutlet weak var NumberRound: AKPickerView!
     @IBOutlet weak var RoundLenght: AKPickerView!
     @IBOutlet weak var BreakLenght: AKPickerView!

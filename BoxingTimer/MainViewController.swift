@@ -41,9 +41,14 @@ class MainViewController: UIViewController {
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        setdedault()
+        
         if let number = UserDefaults.standard.value(forKey: "number") as? String{
           numbertoInt = getCalculatedIntegerFrom(strings: [number])
         }
