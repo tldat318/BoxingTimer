@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-
+import AVFoundation
 extension NSObject {
     
     /// Convert String to Date
@@ -111,6 +111,83 @@ extension NSObject {
         //let hours:Int = TotalSeconds / 3600
         return String(format: "%02d:%02d",minutes,seconds)
     }
+
+//music
+func beginfight() {
+    do{
+        player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "BeginFight", ofType: "wav")!))
+        player.prepareToPlay()
+        player.play()
+    }
+    catch let error {
+        print(error)
+    }
+}
+
+func ready() {
+    do{
+        player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ready", ofType: "wav")!))
+        player.prepareToPlay()
+        player.play()
+    }
+    catch let error {
+        print(error)
+    }
+}
+
+func endfight() {
+    do{
+        player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "EndFight", ofType: "wav")!))
+        player.prepareToPlay()
+        player.play()
+    }
+    catch let error {
+        print(error)
+    }
+}
+func fight() {
+    do{
+        player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Fight", ofType: "wav")!))
+        //player.prepareToPlay()
+        player.play()
+    }
+    catch let error {
+        print(error)
+    }
+}
+func EndNotice(_ Name:String) {
+    do{
+        if let soundName = soundName
+        {
+        player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: soundName, ofType: "wav")!))
+        }
+        //player.prepareToPlay()
+        player.play()
+    }
+    catch let error {
+        print(error)
+    }
+}
+    func breaktimewarning() {
+        do{
+                player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "Breaktime", ofType: "mp3")!))
+            
+            //player.prepareToPlay()
+            player.play()
+        }
+        catch let error {
+            print(error)
+            }
+        }
+func stopMusic()
+{
+    
+    player.stop()
+    
+}
+
+
+
 
 
 

@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 var player = AVAudioPlayer()
-
+var soundName:String? = nil
 class MainViewController: UIViewController {
     var Countdown:Timer!
     var countdownready = 10
@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     var breaktimeToInt = getCalculatedIntegerFrom(strings: [breaktime])
     var NoticeBreakToInt = getCalculatedIntegerFrom(strings: [NoticeBreakEnd])
     var NoticeRoundtoInt = getCalculatedIntegerFrom(strings: [NoticeRoundEnd])
+    
     
     @IBOutlet weak var lbl_detail2: UILabel!
     @IBOutlet weak var lbl_detail1: UILabel!
@@ -37,38 +38,39 @@ class MainViewController: UIViewController {
         CountdownTime.isHidden = false
         btn_stop.isHidden = false
         btn_pause.isHidden = false
-         StartTime()
+       StartTime()
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       setdedault()
-        
         if let number = UserDefaults.standard.value(forKey: "number") as? String{
-          numbertoInt = getCalculatedIntegerFrom(strings: [number])
+            numbertoInt = getCalculatedIntegerFrom(strings: [number])
         }
         if let round = UserDefaults.standard.value(forKey: "round") as? String{
             time = getCalculatedIntegerFrom(strings: [round])
+            totaltime = round
+            
         }
         if let timebreak = UserDefaults.standard.value(forKey: "timebreak") as? String{
             breaktimeToInt = getCalculatedIntegerFrom(strings: [timebreak])
+            breaktime = timebreak
         }
-
+        
         if let noticeround = UserDefaults.standard.value(forKey: "noticeround") as? String{
             NoticeRoundtoInt = getCalculatedIntegerFrom(strings: [noticeround])
         }
         if let noticebreak = UserDefaults.standard.value(forKey: "noticebreak") as? String{
             NoticeBreakToInt = getCalculatedIntegerFrom(strings: [noticebreak])
         }
+        
+        if let stick = UserDefaults.standard.value(forKey: "stick") as? String{
+            soundName = stick
+        }
         btn_resume.layer.cornerRadius = 12
         btn_pause.layer.cornerRadius = 12
         btn_stop.layer.cornerRadius = 12
-        txt_timer.text = "\(numberofround[0]) Round"
+        txt_timer.text = "\(numbertoInt) Round"
         lbl_detail1.text = "Rounds: \(timeFormatted(time))/ notice: \(timeFormatted(NoticeRoundtoInt))"
         lbl_detail2.text = "Breaks: \(timeFormatted(breaktimeToInt))/ notice: \(timeFormatted(NoticeBreakToInt))"
         if numbertoInt == 1
@@ -79,82 +81,140 @@ class MainViewController: UIViewController {
         {
             txt_timer.text = "\(numbertoInt) Rounds"
         }
-        
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setdefault()
+     
     }
     //method
     func StartTime()
     {
         
-       Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
-       
+        Countdown = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(UpdateTime), userInfo: nil, repeats: true)
+        
     }
-
+    
     @objc func UpdateTime()
     {
-        CountdownTime.text = "\(timeFormatted(time))"
+        
+        
         if countdownready != 0
         {
             countdownready -= 1
-            ready()
-            CountdownTime.text = "\(countdownready)"
             if countdownready == 0
             {
-                beginfight()
+                fight()
+            }else
+            {
+                ready()
             }
+            CountdownTime.text = "\(countdownready)"
         }
         if countdownready == 0
         {
             if time != 0
             {
+                
                 time -= 1
                 Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
                 txt_timer.text = "Round \(numbertoInt)"
+                CountdownTime.text = "\(timeFormatted(time))"
                 if time <= NoticeRoundtoInt
                 {
-                    
+                    CountdownTime.text = "\(timeFormatted(time))"
+                    print(time)
                     Backgrondlbl.backgroundColor = UIColor.init(displayP3Red:  209/255, green: 116/255, blue: 25/255, alpha: 1)
                     txt_timer.text = "Round \(numbertoInt)"
                 }
-                
+                if time == NoticeRoundtoInt
+                {
+                    if UserDefaults.standard.object(forKey: "StickBell") != nil
+                    {
+                        if UserDefaults.standard.integer(forKey: "StickBell") == 1
+                        {
+                            soundName = "Stick"
+                        }else
+                        {
+                            soundName = "Bell"
+                        }
+                    }else
+                    {
+                        soundName = "Stick"
+                    }
+                    EndNotice(soundName!)
+                }else if time == 0 && numbertoInt  > 1{
+                breaktimewarning()
+                }
             }
             else if time == 0
             {
-                CountdownTime.text = "\(timeFormatted(breaktimeToInt))"
                 if breaktimeToInt != 0
                 {
+                    CountdownTime.text = "\(timeFormatted(breaktimeToInt))"
                     breaktimeToInt -= 1
+                    
                     Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 1)
                     txt_timer.text = "Break"
                     if breaktimeToInt <= NoticeBreakToInt
                     {
                         Backgrondlbl.backgroundColor = UIColor.init(displayP3Red:  209/255, green: 116/255, blue: 25/255, alpha: 1)
                         txt_timer.text = "Break"
+                        if breaktimeToInt == 0
+                        {
+                            fight()
+                        }
                     }
+                    if breaktimeToInt == NoticeBreakToInt
+                    {
+                        if UserDefaults.standard.object(forKey: "StickBell") != nil
+                    {
+                        if UserDefaults.standard.integer(forKey: "StickBell") == 1
+                        {
+                            soundName = "Stick"
+                        }else
+                        {
+                            soundName = "Bell"
+                        }
+                    }else
+                    {
+                        soundName = "Stick"
+                        }
+                        EndNotice(soundName!)
+                        
+                    }
+                    CountdownTime.text = "\(timeFormatted(breaktimeToInt))"
                 }
-                    
                 else if breaktimeToInt == 0
                 {
                     if numbertoInt != 0
                     {
                         numbertoInt -= 1
-                        print(numbertoInt)
                         time = getCalculatedIntegerFrom(strings: [totaltime])
                         breaktimeToInt = getCalculatedIntegerFrom(strings: [breaktime])
                         self.restart()
-                         StartTime()
-                        if numbertoInt == 1
+                        StartTime()
+                        if numbertoInt == 0
                         {
-                            breaktimeToInt = 0
-                           
-                        }else if numbertoInt == 0
-                        {
+                            numbertoInt = getCalculatedIntegerFrom(strings: [Number])
+                            endfight()
                             StopTime()
+                      
+                           
+                        }
+                        else
+                        {
+                            stopMusic()
+                            breaktimeToInt = 0
+                        }
                         }
                     }
                 }
             }
-        }
     }
+
     
     func restart(){
         if Countdown != nil
@@ -180,11 +240,11 @@ class MainViewController: UIViewController {
             Countdown.invalidate()
             Countdown = nil
         }
-        time = 0
         Backgrondlbl.backgroundColor = UIColor.init(displayP3Red: 80/255, green: 184/255, blue: 34/255, alpha: 1)
         txt_timer.text = "Finish"
+       
     }
-    func setdedault()
+    func setdefault()
     {
         if Number.isEmpty == true
         {
@@ -192,21 +252,25 @@ class MainViewController: UIViewController {
         }
         if totaltime.isEmpty == true
         {
-            time = 30
+            time = 60
+            totaltime = "60"
         }
+        
         if breaktime.isEmpty == true
         {
-            breaktimeToInt = 15
+            breaktimeToInt = 30
+            breaktime = "30"
         }
         if NoticeRoundEnd.isEmpty == true
         {
-            NoticeRoundtoInt = 5
+            NoticeRoundtoInt = 10
         }
         if NoticeBreakEnd.isEmpty == true
         {
-            NoticeBreakToInt = 5
+            NoticeBreakToInt = 10
         }
     }
+    
     
     @IBAction func abtn_pause(_ sender: Any) {
         btn_resume.isHidden = false
@@ -239,33 +303,7 @@ class MainViewController: UIViewController {
         btn_resume.isHidden = true
         StartTime()
     }
-    //music
-    func beginfight() {
-        do{
-            player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "BeginFight", ofType: "wav")!))
-            player.prepareToPlay()
-            player.play()
-        }
-        catch let error {
-            print(error)
-        }
-    }
-    
-    func ready() {
-        do{
-            player = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "ready", ofType: "wav")!))
-            player.prepareToPlay()
-            player.play()
-        }
-        catch let error {
-            print(error)
-        }
-    }
-    
-    
-    
-    
-    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

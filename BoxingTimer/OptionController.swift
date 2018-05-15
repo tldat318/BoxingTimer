@@ -7,11 +7,11 @@
 //
 
 import UIKit
-let numberofround = ["1","2","3","4","5"]
-let roundlenght = ["30","60","120","150","180","210","240","270","300"]
+let numberofround = ["1","2","3","4","5","6","7","8","9","10"]
+let roundlenght = ["30","60","120","150","180","210","240","270","300","330","360"]
 let breaklenght = ["15","30","45","60","75","90","105","120"]
-let roundendnotice = ["5","10","15"]
-let breakendnotice = ["5","10","15"]
+let roundendnotice = ["10","15"]
+let breakendnotice = ["10","15"]
 var totaltime = ""
 var breaktime = ""
 var NoticeRoundEnd = ""
@@ -20,7 +20,6 @@ var Number = ""
 
 
 class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSource {
-    
     
     @IBAction func abtn_back(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -32,30 +31,74 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
     @IBOutlet weak var BreakEndNotice: AKPickerView!
     @IBOutlet weak var btn_Stick: UIButton!
     @IBOutlet weak var btn_Bell: UIButton!
-    @IBAction func abtn_Bell(_ sender: Any) {
+    
+    @IBAction func abtn_Bell(_ sender: UIButton) {
+        UserDefaults.standard.set(2, forKey: "StickBell")
+        
         btn_Stick.backgroundColor = UIColor(displayP3Red: 38/255, green: 38/255, blue: 38/255, alpha: 0.8)
         btn_Stick.layer.shadowOpacity = 0.8
         btn_Bell.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
         btn_Bell.layer.shadowOpacity = 0.8
+        soundName = "Bell"
+        if let soundName = soundName{
+            EndNotice(soundName)
+            
+        }
     }
+
+
     
-    
-    @IBAction func abtn_Stick(_ sender: Any) {
+    @IBAction func abtn_Stick(_ sender: UIButton ) {
+        sender.isSelected = !sender.isSelected
+       
+        UserDefaults.standard.set(1, forKey: "StickBell")
+        
         btn_Bell.backgroundColor = UIColor(displayP3Red: 38/255, green: 38/255, blue: 38/255, alpha: 0.8)
         btn_Bell.layer.shadowOpacity = 0.8
         btn_Stick.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
         btn_Stick.layer.shadowOpacity = 0.8
+        soundName = "Stick"
+        if let soundName = soundName{
+            EndNotice(soundName)
+        }
+        
+}
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.object(forKey: "StickBell") != nil
+        {
+            if UserDefaults.standard.integer(forKey: "StickBell") == 1
+            {
+                UserDefaults.standard.set("Stick", forKey: "StickBell")
+                btn_Bell.backgroundColor = UIColor(displayP3Red: 38/255, green: 38/255, blue: 38/255, alpha: 0.8)
+                btn_Bell.layer.shadowOpacity = 0.8
+                btn_Stick.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
+                btn_Stick.layer.shadowOpacity = 0.8
+            }else
+            {
+                UserDefaults.standard.set("Bell", forKey: "StickBell")
+                btn_Stick.backgroundColor = UIColor(displayP3Red: 38/255, green: 38/255, blue: 38/255, alpha: 0.8)
+                btn_Stick.layer.shadowOpacity = 0.8
+                btn_Bell.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
+                btn_Bell.layer.shadowOpacity = 0.8
+            }
+        }else
+        {
+            UserDefaults.standard.set(1, forKey: "StickBell")
+            UserDefaults.standard.set("Stick", forKey: "StickBell")
+            btn_Bell.backgroundColor = UIColor(displayP3Red: 38/255, green: 38/255, blue: 38/255, alpha: 0.8)
+            btn_Bell.layer.shadowOpacity = 0.8
+            btn_Stick.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
+            btn_Stick.layer.shadowOpacity = 0.8
+        }
+        
     }
-
- 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         btn_Bell.backgroundColor = UIColor(displayP3Red: 38/255, green: 38/255, blue: 38/255, alpha: 0.8)
         btn_Stick.backgroundColor = UIColor(displayP3Red: 209/255, green: 25/255, blue: 56/255, alpha: 0.8)
 //        btn_Stick.layer.shadowOpacity = 0.8
 //        btn_Bell.layer.shadowOpacity = 0.8
-
         
         self.NumberRound.delegate = self
         self.NumberRound.dataSource = self
@@ -174,30 +217,30 @@ class OptionController: UIViewController,AKPickerViewDelegate,AKPickerViewDataSo
         if pickerView.tag == 0
         {
             Number = numberofround[item]
-            UserDefaults.standard.set(Number, forKey: "number")
+            
         
         }else
         if pickerView.tag == 1
         {
            totaltime = roundlenght[item]
-            UserDefaults.standard.set(totaltime, forKey: "round")
+   
+            
          
         }else
             if pickerView.tag == 2
             {
                 breaktime = breaklenght[item]
-                UserDefaults.standard.set(breaktime, forKey: "timebreak")
+          
               
         }else
                 if pickerView.tag == 3
                 {
                     NoticeRoundEnd = roundendnotice[item]
-                    UserDefaults.standard.set(NoticeRoundEnd, forKey: "noticeround")
+             
                     
         }else
                 {
-                    NoticeBreakEnd = breakendnotice[item]
-                    UserDefaults.standard.set(NoticeBreakEnd, forKey: "noticebreak")
+                   NoticeBreakEnd = breakendnotice[item]
                     
                     }
     }

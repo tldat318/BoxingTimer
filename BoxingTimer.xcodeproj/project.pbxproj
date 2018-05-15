@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE2F8FBC2092CD110043D83B /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F8FBB2092CD100043D83B /* AKPickerView.swift */; };
-		CE4D00A620A1693900644502 /* BeginFight.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE4D00A320A1693900644502 /* BeginFight.wav */; };
-		CE4D00A720A1693900644502 /* Notice.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE4D00A420A1693900644502 /* Notice.wav */; };
+		CE4D00A720A1693900644502 /* Stick.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE4D00A420A1693900644502 /* Stick.wav */; };
 		CE4D00A820A1693900644502 /* ready.wav in Resources */ = {isa = PBXBuildFile; fileRef = CE4D00A520A1693900644502 /* ready.wav */; };
 		CEA8370D20804FAD00C8F3C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */; };
 		CEA8370F20804FAD00C8F3C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8370E20804FAD00C8F3C5 /* MainViewController.swift */; };
@@ -19,6 +18,11 @@
 		CEA8372220804FAD00C8F3C5 /* BoxingTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8372120804FAD00C8F3C5 /* BoxingTimerTests.swift */; };
 		CEA8372D20804FAD00C8F3C5 /* BoxingTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8372C20804FAD00C8F3C5 /* BoxingTimerUITests.swift */; };
 		CEB74134209317860095D415 /* OP.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB74133209317860095D415 /* OP.swift */; };
+		CEC9FB5E20A442A100890084 /* BeginFight.wav in Resources */ = {isa = PBXBuildFile; fileRef = CEC9FB5C20A442A100890084 /* BeginFight.wav */; };
+		CEC9FB5F20A442A100890084 /* EndFight.wav in Resources */ = {isa = PBXBuildFile; fileRef = CEC9FB5D20A442A100890084 /* EndFight.wav */; };
+		CEC9FB6120A444ED00890084 /* Fight.wav in Resources */ = {isa = PBXBuildFile; fileRef = CEC9FB6020A444ED00890084 /* Fight.wav */; };
+		CEC9FB6520A5729F00890084 /* Bell.wav in Resources */ = {isa = PBXBuildFile; fileRef = CEC9FB6420A5729F00890084 /* Bell.wav */; };
+		CEC9FB6920A57D3C00890084 /* Breaktime.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CEC9FB6820A57D3C00890084 /* Breaktime.mp3 */; };
 		CEE9F01D208F351000AF1AD0 /* OptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9F01C208F351000AF1AD0 /* OptionController.swift */; };
 		CEF13D0B208F3AE3003496DE /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF13D0A208F3AE3003496DE /* UIImage+Resize.swift */; };
 /* End PBXBuildFile section */
@@ -42,8 +46,7 @@
 
 /* Begin PBXFileReference section */
 		CE2F8FBB2092CD100043D83B /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
-		CE4D00A320A1693900644502 /* BeginFight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BeginFight.wav; sourceTree = "<group>"; };
-		CE4D00A420A1693900644502 /* Notice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Notice.wav; sourceTree = "<group>"; };
+		CE4D00A420A1693900644502 /* Stick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Stick.wav; sourceTree = "<group>"; };
 		CE4D00A520A1693900644502 /* ready.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ready.wav; sourceTree = "<group>"; };
 		CEA8370920804FAD00C8F3C5 /* BoxingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA8370C20804FAD00C8F3C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +62,11 @@
 		CEA8372C20804FAD00C8F3C5 /* BoxingTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxingTimerUITests.swift; sourceTree = "<group>"; };
 		CEA8372E20804FAD00C8F3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEB74133209317860095D415 /* OP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OP.swift; sourceTree = "<group>"; };
+		CEC9FB5C20A442A100890084 /* BeginFight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = BeginFight.wav; sourceTree = "<group>"; };
+		CEC9FB5D20A442A100890084 /* EndFight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = EndFight.wav; sourceTree = "<group>"; };
+		CEC9FB6020A444ED00890084 /* Fight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Fight.wav; sourceTree = "<group>"; };
+		CEC9FB6420A5729F00890084 /* Bell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bell.wav; sourceTree = "<group>"; };
+		CEC9FB6820A57D3C00890084 /* Breaktime.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Breaktime.mp3; sourceTree = "<group>"; };
 		CEE9F01C208F351000AF1AD0 /* OptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionController.swift; sourceTree = "<group>"; };
 		CEF13D0A208F3AE3003496DE /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,8 +99,12 @@
 		CE4D00A920A1897C00644502 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				CE4D00A320A1693900644502 /* BeginFight.wav */,
-				CE4D00A420A1693900644502 /* Notice.wav */,
+				CEC9FB6820A57D3C00890084 /* Breaktime.mp3 */,
+				CEC9FB6420A5729F00890084 /* Bell.wav */,
+				CEC9FB6020A444ED00890084 /* Fight.wav */,
+				CEC9FB5C20A442A100890084 /* BeginFight.wav */,
+				CEC9FB5D20A442A100890084 /* EndFight.wav */,
+				CE4D00A420A1693900644502 /* Stick.wav */,
 				CE4D00A520A1693900644502 /* ready.wav */,
 			);
 			path = Music;
@@ -269,12 +281,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4D00A720A1693900644502 /* Notice.wav in Resources */,
+				CEC9FB5E20A442A100890084 /* BeginFight.wav in Resources */,
+				CEC9FB5F20A442A100890084 /* EndFight.wav in Resources */,
+				CE4D00A720A1693900644502 /* Stick.wav in Resources */,
 				CEA8371720804FAD00C8F3C5 /* LaunchScreen.storyboard in Resources */,
-				CE4D00A620A1693900644502 /* BeginFight.wav in Resources */,
+				CEC9FB6520A5729F00890084 /* Bell.wav in Resources */,
 				CEA8371420804FAD00C8F3C5 /* Assets.xcassets in Resources */,
 				CE4D00A820A1693900644502 /* ready.wav in Resources */,
 				CEA8371220804FAD00C8F3C5 /* Main.storyboard in Resources */,
+				CEC9FB6120A444ED00890084 /* Fight.wav in Resources */,
+				CEC9FB6920A57D3C00890084 /* Breaktime.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
